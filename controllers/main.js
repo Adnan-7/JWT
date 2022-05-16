@@ -47,7 +47,7 @@ const dashboard = async (req, res) => {
       secret: `Here is your authorized data, your lucky numbrer is ${luckyNumber}`,
     });
   } catch (error) {
-    throw new CustomAPIError('Not authorize to access this route', 401);
+    throw new CustomAPIError('Not authorized to access this route', 401);
   }
 };
 
