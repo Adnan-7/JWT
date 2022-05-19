@@ -4,7 +4,7 @@
 // setup authentication so only the request with JWT can access the dasboard
 
 const jwt = require('jsonwebtoken');
-const CustomAPIError = require('../errors/custom-error');
+const { BadRequest } = require('../errors');
 
 const login = async (req, res) => {
   const { password, username } = req.body;
@@ -13,7 +13,7 @@ const login = async (req, res) => {
   // check in the controller
 
   if (!username || !password) {
-    throw new CustomAPIError('please provide username and password', 400);
+    throw new BadRequest('please provide username and password');
   }
 
   //just for demo, normally provided by DB!!!!
